@@ -22,3 +22,13 @@ def test_invalid_input(client):
     response = client.get('/?celsius=invalid')
     assert response.status_code == 200
     assert b'Fahrenheit: invalid input' in response.data
+
+def test_overtemp_input(client):
+    response = client.get('/?celsius=1001')
+    assert response.status_code == 200
+    assert b'Fahrenheit: invalid input' in response.data
+
+def test_undertemp_input(client):
+    response = client.get('/?celsius=-274')
+    assert response.status_code == 200
+    assert b'Fahrenheit: invalid input' in response.data

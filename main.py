@@ -7,7 +7,13 @@ app = Flask(__name__)
 def fahrenheit_from(celsius):
     """Convert Celsius to Fahrenheit degrees."""
     try:
-        fahrenheit = float(celsius) * 9 / 5 + 32
+        # add sanity check for out of range celcius values
+        celsius = float(celsius)
+        if celsius < -273.15:
+            return "invalid input"
+        if celsius > 1000:
+            return "invalid input"
+        fahrenheit = celsius * 9 / 5 + 32
         fahrenheit = round(fahrenheit, 3)  # Round to three decimal places
         return str(fahrenheit)
     except ValueError:

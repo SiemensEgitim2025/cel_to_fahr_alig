@@ -11,6 +11,8 @@ def fahrenheit_from(celsius):
         celsius = float(celsius)
         if celsius < -273.15:
             return "invalid input"
+        if celsius > 1000:
+            return "invalid input"
         fahrenheit = celsius * 9 / 5 + 32
         fahrenheit = round(fahrenheit, 3)  # Round to three decimal places
         return str(fahrenheit)

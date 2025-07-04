@@ -1,5 +1,6 @@
 # Celsius-to-Fahrenheit
-A simple python script deployed as Flask App on Google App Engine with GitHub CI
+A simple python script deployed as Flask App on Google App Engine with GitHub CI.
+It also checks out of range values.
 
 How to run
         
